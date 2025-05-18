@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>"인공지능 수학" 문제풀이 피드백 AI 챗봇 (Gemini)</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h3> "인공지능 수학" 문제풀이 피드백 AI 챗봇</h3>
+      <p class="subtitle">AI MathGemini</p>
+    </div>
+
+    <div class="main-content">
+      <form id="upload-form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="problem-answer">문제 및 작성한 답</label>
+          <input type="file" id="problem-answer" name="problem-answer" accept="image/jpeg,image/jpg,image/png,application/pdf" required />
+          <small class="file-info">문제와 작성한 답안을 JPEG, PNG 또는 PDF 파일로 업로드하세요.</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="feedback-criteria">피드백 고려사항 PDF (선택사항)</label>
+          <input type="file" id="feedback-criteria" name="feedback-criteria" accept="application/pdf" />
+          <small class="file-info">성취기준, 수학적 대상, 루틴, 내러티브 등의 피드백 고려사항을 PDF 파일로 업로드하세요.</small>
+        </div>
+        
+        <div class="form-group">
+          <label>피드백 고려사항 직접입력 (선택사항)</label>
+          <div class="feedback-input-container">
+            <div class="feedback-input-item">
+              <label for="achievement-standard">성취기준</label>
+              <textarea id="achievement-standard" name="achievement-standard" placeholder="수학적 성취기준을 입력하세요"></textarea>
+            </div>
+            
+            <div class="feedback-input-item">
+              <label for="math-object">수학적 대상</label>
+              <textarea id="math-object" name="math-object" placeholder="다루는 수학적 대상을 입력하세요"></textarea>
+            </div>
+            
+            <div class="feedback-input-item">
+              <label for="routine">루틴</label>
+              <textarea id="routine" name="routine" placeholder="문제 해결 루틴을 입력하세요"></textarea>
+            </div>
+            
+            <div class="feedback-input-item">
+              <label for="narrative">내러티브</label>
+              <textarea id="narrative" name="narrative" placeholder="내러티브 요소를 입력하세요"></textarea>
+            </div>
+            
+            <div class="feedback-input-item">
+              <label for="other">기타</label>
+              <textarea id="other" name="other" placeholder="기타 고려사항을 입력하세요"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit">피드백 받기</button>
+      </form>
+
+      <div id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>답안을 분석하고 있습니다...</p>
+      </div>
+
+      <div id="result" style="display: none;">
+        <h4>피드백 결과</h4>
+        <div id="result-content"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>개발: 고려대학교 대학원 교과교육학과 수학교육전공 오영석</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
