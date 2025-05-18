@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, send_from_directory, render_template
 import os
 from werkzeug.utils import secure_filename
 import pytesseract
