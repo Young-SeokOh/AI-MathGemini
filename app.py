@@ -86,9 +86,9 @@ def get_feedback_from_ai(problem_text, criteria_text=None):
         print(f"AI 피드백 생성 중 오류: {e}")
         return f"AI 피드백을 생성하는 동안 오류가 발생했습니다: {str(e)}"
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return send_from_directory('.', 'index.html')  # render_template 대신 이것을 사용하세요
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
